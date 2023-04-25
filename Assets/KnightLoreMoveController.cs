@@ -20,16 +20,16 @@ public class KnightLoreMoveController : MonoBehaviour
 public void OnMove(InputValue value)
     {
         Vector2 moveDirection = value.Get<Vector2>();
-        if (Mathf.Abs(moveDirection.x) > Mathf.Abs(moveDirection.y)) {
-            if (moveDirection.x > 0) {
+        if (Mathf.Abs(moveDirection.x) < Mathf.Abs(moveDirection.y)) {
+            if (moveDirection.y > 0) {
                 GetComponent<Animator>().SetTrigger("KeyUp");
-            } else if (moveDirection.x < 0) {
+            } else if (moveDirection.y < 0) {
                 GetComponent<Animator>().SetTrigger("KeyDown");
             }
         } else {
-            if (moveDirection.y > 0) {
+            if (moveDirection.x > 0) {
                 GetComponent<Animator>().SetTrigger("KeyRight");
-            } else if (moveDirection.y < 0) {
+            } else if (moveDirection.x < 0) {
                 GetComponent<Animator>().SetTrigger("KeyLeft");
             }
 
